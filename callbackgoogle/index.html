@@ -1,21 +1,54 @@
-
 <!DOCTYPE html>
 <html>
 <head>
   <title>Google Callback</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Roboto', Arial, sans-serif;
       text-align: center;
-      padding: 2em;
+      background-color: #f5f5f5;
+      padding: 3em;
     }
+
+    h2 {
+      color: #202124;
+    }
+
+    p {
+      color: #5f6368;
+      font-size: 1.1em;
+    }
+
     code {
-      background: #f2f2f2;
-      padding: 0.5em;
-      border-radius: 4px;
+      background: #e8f0fe;
+      color: #1967d2;
+      padding: 0.5em 1em;
+      border-radius: 6px;
       display: block;
-      margin-top: 1em;
+      margin: 1em auto;
       font-size: 1.2em;
+      max-width: 80%;
+      word-break: break-all;
+    }
+
+    .btn-close {
+      background-color: #1967d2;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 6px;
+      font-size: 1em;
+      cursor: pointer;
+      margin-top: 2em;
+      transition: background-color 0.2s ease;
+    }
+
+    .btn-close:hover {
+      background-color: #0f4ab3;
+    }
+
+    .btn-close:focus {
+      outline: none;
     }
   </style>
 </head>
@@ -23,6 +56,8 @@
   <h2>Accesso con Google completato!</h2>
   <p>Il tuo token è stato copiato automaticamente negli appunti. Torna nell'app per completare il login.</p>
   <code id="tokenDisplay">Caricamento token...</code>
+
+  <button class="btn-close" onclick="window.close()">Chiudi</button>
 
   <script>
     function extractTokenFromUrl() {
@@ -41,7 +76,7 @@
         console.error("Errore durante la copia:", err);
       });
     } else {
-      document.body.innerText = "Accesso annullato o fallito.";
+      document.body.innerHTML = "<h2>Accesso annullato o fallito.</h2>";
     }
   </script>
 </body>
